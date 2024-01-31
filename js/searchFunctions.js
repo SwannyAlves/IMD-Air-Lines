@@ -6,7 +6,6 @@ function passengerJSON(){
 
     for (var user of passengers) {
         arrayPassenger.push(user);
-        console.log(user);
     }
 }
 
@@ -34,6 +33,8 @@ function searchPassenger(event){
     else{
         allPassenger();
     }
+
+    arrayPassenger = [];
 }
 
 function allPassenger(){
@@ -42,14 +43,17 @@ function allPassenger(){
 
 function firstClass(){
     printPassengers(filterUsers("classe", "firstClass"));
+    return;
 }
 
 function secondClass(){
     printPassengers(filterUsers("classe", "secondClass"));
+    return;
 }
 
 function thirdClass(){
     printPassengers(filterUsers("classe", "thirdClass"));
+    return;
 }
 
 function searchCpf() {
@@ -60,6 +64,7 @@ function searchCpf() {
         return;
     } else {
         printPassengers(filterUsers("cpf", cpf));  
+        return;
     }
 }
 
@@ -77,6 +82,7 @@ function filterUsers(filter, arg){
 
 function printPassengers(passengerFilter){    
     var passengerDiv = document.getElementById('search-container_search-passenger');
+    passengerDiv.innerHTML = "";
 
     for (var user of passengerFilter) {
         var newParagraph = document.createElement('p');
@@ -88,4 +94,6 @@ function printPassengers(passengerFilter){
         newParagraph.appendChild(paragraphText);
         passengerDiv.appendChild(newParagraph);
     }
+
+    return;
 }
