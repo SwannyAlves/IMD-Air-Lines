@@ -14,18 +14,19 @@ function searchPassenger(){
     var selectSearch = document.getElementById('searchSelect').value;
 
     if (selectSearch === "cpf"){
+        console.log("cpf");
     }
 
     else if (selectSearch === "primeiraClasse") {
-        console.log("primeira");
+        firstClass();
     }
 
     else if (selectSearch === "segundaClasse") {
-        console.log("segunda");
+        secondClass();
     }
 
     else if (selectSearch === "terceiraClass") {
-        console.log("terceira");
+        thirdClass();
     }
 
     else{
@@ -40,4 +41,34 @@ function allPassenger(){
     }
 }
 
+function firstClass(){
+    var passengerFilter = filterUsers("classe", "firstClass");
+    for (var user of passengerFilter) {
+        console.log(user);
+    }
+}
+
+function secondClass(){
+    var passengerFilter = filterUsers("classe", "secondClass");
+    for (var user of passengerFilter) {
+        console.log(user);
+    }
+}
+
+function thirdClass(){
+    var passengerFilter = filterUsers("classe", "thirdClass");
+    for (var user of passengerFilter) {
+        console.log(user);
+    }
+}
+
+function filterUsers(filter, arg){
+    if (filter === "cpf") {
+        console.log("filter = cpf")
+    } else {
+        var passengerFilter = arrayPassenger.filter(passenger => passenger.classe === arg);
+        return passengerFilter;
+    }
+    
+}
 
