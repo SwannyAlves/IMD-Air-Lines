@@ -6,47 +6,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="../css/base.css" />
-  <link rel="stylesheet" href="../css/LoginPage.css" />
+  <link rel="stylesheet" href="../css/registrationPage.css" />
   <title>IMD Air Lines</title>
   <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="divMain">
-    <div id="registratioTitles">
-      <h1>Cadastrar</h1>
-      <h2>Passageiro</h2>
+  <div class="container-registration">
+    <div class="register-container__options" id="divMenu">
+
+      <h1>Bem-vindo, Admin</h1>
+
+      <form class="register-container__buttons">
+        <button onclick="redirectToRegistrationPage()" type="button" class="register-container__buttons--button">
+          <span>Cadastrar</span>
+          <small>Passageiro</small>
+        </button>
+
+        <button onclick="redirectToSearchPage()" type="button" class="register-container__buttons--button">
+          <span>Ver todos</span>
+          <small>Passageiros</small>
+        </button>
+      </form>
+
     </div>
 
-    <div id="registrationForm">
-      <form>
-        <label for="name">Nome</label> <br>
-        <input type="text" name="username" id="registrationName"> <br>
+    <div class="register-container__create">
+      <div class="register-container__create--title">
+        <h1>Cadastrar</h1>
+        <h3>Passageiro</h3>
+      </div>
 
-        <label for="cod">CPF</label> <br>
-        <input type="text" name="codUser" id="registrationCpf"> <br>
+      <form class="register-container__create--form">
+        <div>
+          <label for="name">Nome</label> <br>
+          <input type="text" name="username" id="registrationName">
+        </div>
+        <div>
+          <label for="cpf">CPF</label> <br>
+          <input type="text" name="cpfUser" id="registrationCpf">
+        </div>
+        <div>
+          <label for="address">Endereço</label> <br>
+          <input type="text" name="address" id="registrationAddress">
+        </div>
 
-        <label for="address">Endereço</label> <br>
-        <input type="text" name="address" id="registrationAddress"> <br>
+        <div class="register-container__create--form__radio">
+          <div class="register-container__create--form__radio--container">
+            <input type="radio" name="ticketClass" id="registrationFirstClass" value="firstClass">
+            <label for="registrationFirstClass">1ª Classe</label>
+          </div>
+          <div class="register-container__create--form__radio--container">
+            <input type="radio" name="ticketClass" id="registrationSecondClass" value="secondClass">
+            <label for="registrationSecondClass">2ª Classe</label>
+          </div>
+          <div class="register-container__create--form__radio--container">
+            <input type="radio" name="ticketClass" id="registrationThirdClass" value="thirdClass">
+            <label for="registrationThirdClass">3ª Classe</label> <br>
+          </div>
+        </div>
 
-        <input type="radio" name="firstClass" id="registrationFirstClass" value="firstClass">
-        <label for="firstClass">1ª Classe</label>
+        <div class="register-container__create--form__buttons">
+          <button onclick="limparCampos(event)" class="register-container__create--form__buttons--clear">LIMPAR</button>
+          <button onclick="salvarDados(event)" class="register-container__create--form__buttons--save">SALVAR</button>
+        </div>
 
-        <input type="radio" name="secondClass" id="registrationSecondClass" value="secondClass">
-        <label for="secondClass">2ª Classe</label>
-
-        <input type="radio" name="thirdClass" id="registrationThirdClass" value="thirdClass">
-        <label for="thirdClass">3ª Classe</label> <br>
-
-        <button>LIMPAR</button>
-        <button>SALVAR</button>
-        <br>
-
-        <button>ENVIAR CADASTRO(S)</button>
+        <button onclick="enviarCadastro()" class="register-container__create--form__buttons--send">ENVIAR
+          CADASTRO(S)</button>
       </form>
     </div>
+
   </div>
-  
+  <script src="../js/RedirectFunctions.js"></script>
+  <script src="../js/ClearButton.js"></script>
+  <script src="../js/Registration.js"></script>
+
+
 </body>
 
 </html>
