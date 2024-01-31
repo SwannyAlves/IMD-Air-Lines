@@ -1,17 +1,19 @@
 var passengerReceived = sessionStorage.getItem("passengerData");
-var passenger = JSON.parse(passengerReceived);
+var passengers = JSON.parse(passengerReceived);
 var arrayPassenger = [];
 
-for (var user of passenger) {
-    arrayPassenger.push(user);
-    console.log(user);
+function passengerJSON(){
+    for (var user of passengers) {
+        arrayPassenger.push(user);
+        //console.log(user);
+    }
 }
 
 function searchPassenger(){
+    passengerJSON();
     var selectSearch = document.getElementById('searchSelect').value;
 
     if (selectSearch === "cpf"){
-        console.log("cpf");
     }
 
     else if (selectSearch === "primeiraClasse") {
@@ -28,6 +30,14 @@ function searchPassenger(){
 
     else{
         console.log("todos");
+        allPassenger();
     }
 }
+
+function allPassenger(){
+    for (var user of arrayPassenger) {
+        console.log(user.nome);
+    }
+}
+
 
