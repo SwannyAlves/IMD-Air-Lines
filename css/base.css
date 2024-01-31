@@ -142,3 +142,34 @@ select {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+body {
+  background: rgb(0, 131, 176);
+  background: radial-gradient(
+    circle,
+    rgba(0, 131, 176, 0.47942927170868344) 0%,
+    rgba(219, 0, 158, 0.5186449579831933) 100%
+  );
+}
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 1000px;
+  height: 600px;
+  background: white;
+
+  border-radius: 40px;
+}

@@ -6,37 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="../css/base.css" />
-  <link rel="stylesheet" href="../css/LoginPage.css" />
+  <link rel="stylesheet" href="../css/loginPage.css" />
   <title>IMD Air Lines</title>
   <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <div class="divMain">
-    <div id="divLogin">
-      <div class="divTitles">
+  <div class="container login-container">
+    <div class="login-container__form" id="divLogin">
+      <div class="login-container__form__header">
         <h1>IMD Air Lines</h1>
         <h2>Bem-vindo</h2>
       </div>
-      
-      <div class="divForm" id="divFormLogin">
-        <form>
-          <label for="login">Login</label> <br>
+
+      <form onsubmit="return handleLogin(event)" action="adminPage.html" class="login-container__form__login__form">
+        <div class="login-container__form__login__form__inputs">
+          <label for="login">Usuário</label> <br>
           <input type="text" name="email" id="emailLogin"> <br>
 
-          <label for="pass">Password</label> <br>
+          <label for="pass">Senha</label> <br>
           <input type="password" name="password" id="passwordLogin"> <br>
+        </div>
 
-          <button onclick="clearInputs()">LIMPAR TUDO</button>
-          <button onclick="loginAdmin()">LOGIN</button>
-        </form>
-      </div>
+        <div class="login-container__form__login__form__buttons">
+          <button type="button" onclick="clearInputs()">LIMPAR TUDO</button>
+          <button type="submit">Entrar</button>
+        </div>
+
+      </form>
     </div>
 
-    <div id="divImage">
-
-    </div> 
+    <div class="login-container__image" id="divImage">
+      <img src="../assets/travel.svg" alt="Airplane" class="login-container__image__img" />
+      <span class="login-container__image__span"></span>
+    </div>
   </div>
 
   <script src="../js/ClearButton.js"></script>
