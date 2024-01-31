@@ -1,4 +1,4 @@
-function clearInputs(){
-    document.getElementById('emailLogin').innerHTML = "";
-    document.getElementById('passwordLogin').innerHTML = "";
+function clearInputs() {
+  document.getElementById("emailLogin").value = ""
+  document.getElementById("passwordLogin").value = ""
 }
