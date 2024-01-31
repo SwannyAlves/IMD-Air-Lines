@@ -1,4 +1,11 @@
+var passengerReceived = sessionStorage.getItem("passengerData");
+var passengers = JSON.parse(passengerReceived);
 var passengerDataArray = []
+
+for (var user of passengers) {
+  passengerDataArray.push(user);
+  console.log(user);
+}
 
 function salvarDados(event) {
   event.preventDefault()

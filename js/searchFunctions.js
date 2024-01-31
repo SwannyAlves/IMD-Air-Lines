@@ -1,11 +1,12 @@
-var passengerReceived = sessionStorage.getItem("passengerData");
-var passengers = JSON.parse(passengerReceived);
 var arrayPassenger = [];
 
 function passengerJSON(){
+    var passengerReceived = sessionStorage.getItem("passengerData");
+    var passengers = JSON.parse(passengerReceived);
+
     for (var user of passengers) {
         arrayPassenger.push(user);
-        //console.log(user);
+        console.log(user);
     }
 }
 
@@ -31,7 +32,6 @@ function searchPassenger(event){
     }
 
     else{
-        console.log("todos");
         allPassenger();
     }
 }
@@ -75,12 +75,8 @@ function filterUsers(filter, arg){
     return passengerFilter;
 }
 
-function printPassengers(passengerFilter){
+function printPassengers(passengerFilter){    
     var passengerDiv = document.getElementById('search-container_search-passenger');
-    while(passengerDiv.firstChild) {
-        console.log("aqui")
-        console.log(passengerDiv.firstChild);
-    }
 
     for (var user of passengerFilter) {
         var newParagraph = document.createElement('p');
