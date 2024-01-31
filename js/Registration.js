@@ -43,7 +43,9 @@ function verificarPassageiroExistente() {
     var storedPassengers = JSON.parse(jsonData)
     if (
       storedPassengers.some(
-        (passenger) => passenger.nome === nome && passenger.cpf === cpf
+        (passenger) =>
+          (passenger.nome === nome && passenger.cpf === cpf) ||
+          (passenger.nome !== nome && passenger.cpf === cpf)
       )
     ) {
       return true
@@ -51,7 +53,9 @@ function verificarPassageiroExistente() {
   }
   if (
     passengerDataArray.some(
-      (passenger) => passenger.nome === nome && passenger.cpf === cpf
+      (passenger) =>
+        (passenger.nome === nome && passenger.cpf === cpf) ||
+        (passenger.nome !== nome && passenger.cpf === cpf)
     )
   ) {
     return true
