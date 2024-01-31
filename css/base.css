@@ -161,3 +161,15 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 1000px;
+  height: 600px;
+  background: white;
+
+  border-radius: 40px;
+}
