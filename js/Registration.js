@@ -49,7 +49,7 @@ function verificarPassageiroExistente() {
   if (jsonData) {
     var storedPassengers = JSON.parse(jsonData)
     if (
-      storedPassengers.some(
+     storedPassengers.some(
         (passenger) => 
           (passenger.nome === nome && passenger.cpf === cpf) || 
           (passenger.nome !== nome && passenger.cpf === cpf)
