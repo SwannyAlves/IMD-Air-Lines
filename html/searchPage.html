@@ -36,7 +36,7 @@
             <form>
                 <label for="cpf">Buscar por CPF: </label>
                 <input type="text" name="cpf" id="searchCpf">
-                <button onclick="searchPassenger()">BUSCAR</button> <br>
+                <button onclick="searchPassenger(event)">BUSCAR</button> <br>
 
                 <label for="search">Buscar por: </label>
                 <select name="searchSelect" id="searchSelect">
@@ -52,18 +52,8 @@
                 <form>
                     <label for="Passageiro">Passageiros:</label>
 
-                    <div class="search-container_search-passenger">
-                        <label for="Nome">Nome: </label>
-                        <span id="userName">Username</span> <br>
-
-                        <label for="CPF">CPF: </label>
-                        <span id="cpf">CPF</span> <br>
-
-                        <label for="Endereco">Endereço: </label>
-                        <span id="address">Endereco</span> <br>
-
-                        <label for="classe">Classe: </label>
-                        <span id="classe">Classe</span> <br>
+                    <div id="search-container_search-passenger">
+                        
                     </div>
                 </form>
                 

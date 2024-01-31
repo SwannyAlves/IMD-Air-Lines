@@ -9,7 +9,8 @@ function passengerJSON(){
     }
 }
 
-function searchPassenger(){
+function searchPassenger(event){
+    event.preventDefault();
     passengerJSON();
     var selectSearch = document.getElementById('searchSelect').value;
 
@@ -36,30 +37,19 @@ function searchPassenger(){
 }
 
 function allPassenger(){
-    for (var user of arrayPassenger) {
-        console.log(user.nome);
-    }
+    printPassengers(arrayPassenger);
 }
 
 function firstClass(){
-    var passengerFilter = filterUsers("classe", "firstClass");
-    for (var user of passengerFilter) {
-        console.log(user);
-    }
+    printPassengers(filterUsers("classe", "firstClass"));
 }
 
 function secondClass(){
-    var passengerFilter = filterUsers("classe", "secondClass");
-    for (var user of passengerFilter) {
-        console.log(user);
-    }
+    printPassengers(filterUsers("classe", "secondClass"));
 }
 
 function thirdClass(){
-    var passengerFilter = filterUsers("classe", "thirdClass");
-    for (var user of passengerFilter) {
-        console.log(user);
-    }
+    printPassengers(filterUsers("classe", "thirdClass"));
 }
 
 function searchCpf() {
@@ -69,10 +59,7 @@ function searchCpf() {
         alert("Você precisa digitar o cpf para realizar a busca por cpf.");
         return;
     } else {
-        var passengerFilter = filterUsers("cpf", cpf);
-        for (var user of passengerFilter) {
-            console.log(user);
-        }
+        printPassengers(filterUsers("cpf", cpf));  
     }
 }
 
@@ -88,3 +75,21 @@ function filterUsers(filter, arg){
     return passengerFilter;
 }
 
+function printPassengers(passengerFilter){
+    var passengerDiv = document.getElementById('search-container_search-passenger');
+    while(passengerDiv.firstChild) {
+        console.log("aqui")
+        console.log(passengerDiv.firstChild);
+    }
+
+    for (var user of passengerFilter) {
+        var newParagraph = document.createElement('p');
+
+        var paragraphText = document.createTextNode(
+            `Nome: ${user.nome} CPF: ${user.cpf} Endereço: ${user.endereco} Classe: ${user.classe}`
+        );
+
+        newParagraph.appendChild(paragraphText);
+        passengerDiv.appendChild(newParagraph);
+    }
+}
