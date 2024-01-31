@@ -14,7 +14,7 @@ function searchPassenger(){
     var selectSearch = document.getElementById('searchSelect').value;
 
     if (selectSearch === "cpf"){
-        console.log("cpf");
+        searchCpf();
     }
 
     else if (selectSearch === "primeiraClasse") {
@@ -62,13 +62,29 @@ function thirdClass(){
     }
 }
 
-function filterUsers(filter, arg){
-    if (filter === "cpf") {
-        console.log("filter = cpf")
+function searchCpf() {
+    var cpf = document.getElementById('searchCpf').value;
+
+    if (cpf === ""){
+        alert("Você precisa digitar o cpf para realizar a busca por cpf.");
+        return;
     } else {
-        var passengerFilter = arrayPassenger.filter(passenger => passenger.classe === arg);
-        return passengerFilter;
+        var passengerFilter = filterUsers("cpf", cpf);
+        for (var user of passengerFilter) {
+            console.log(user);
+        }
     }
+}
+
+function filterUsers(filter, arg){
+    var passengerFilter; 
+    if (filter === "cpf") {
+        passengerFilter = arrayPassenger.filter(passenger => passenger.cpf === arg);
+    } 
     
+    else {
+        passengerFilter = arrayPassenger.filter(passenger => passenger.classe === arg);
+    }
+    return passengerFilter;
 }
 
