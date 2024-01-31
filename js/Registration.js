@@ -1,4 +1,11 @@
+var passengerReceived = sessionStorage.getItem("passengerData");
+var passengers = JSON.parse(passengerReceived);
 var passengerDataArray = []
+
+for (var user of passengers) {
+  passengerDataArray.push(user);
+  console.log(user);
+}
 
 function salvarDados(event) {
   event.preventDefault()
@@ -42,9 +49,9 @@ function verificarPassageiroExistente() {
   if (jsonData) {
     var storedPassengers = JSON.parse(jsonData)
     if (
-      storedPassengers.some(
-        (passenger) =>
-          (passenger.nome === nome && passenger.cpf === cpf) ||
+     storedPassengers.some(
+        (passenger) => 
+          (passenger.nome === nome && passenger.cpf === cpf) || 
           (passenger.nome !== nome && passenger.cpf === cpf)
       )
     ) {
@@ -53,8 +60,8 @@ function verificarPassageiroExistente() {
   }
   if (
     passengerDataArray.some(
-      (passenger) =>
-        (passenger.nome === nome && passenger.cpf === cpf) ||
+      (passenger) => 
+        (passenger.nome === nome && passenger.cpf === cpf) || 
         (passenger.nome !== nome && passenger.cpf === cpf)
     )
   ) {
