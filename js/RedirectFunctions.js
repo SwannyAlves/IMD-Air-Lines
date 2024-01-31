@@ -1,7 +1,7 @@
-function redirectToRegistrationPage(){
-    window.open("../html/RegistrationPage.html");
+function redirectToRegistrationPage() {
+  window.open("../html/registrationPage.html")
 }
 
-function redirectToSearchPage(){
-    window.open("../html/SearchPage.html");
+function redirectToSearchPage() {
+  window.open("../html/searchPage.html")
 }
