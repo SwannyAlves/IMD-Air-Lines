@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,22 +8,28 @@
     <link rel="stylesheet" href="../css/base.css" />
     <link rel="stylesheet" href="../css/searchPage.css" />
     <title>IMD Air Lines</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container-search">
-        <div class="search-container_options" id="divMenu">
+        <div class="search-container__options" id="divMenu">
+
             <h1>Bem-vindo, Admin</h1>
 
-            <form class="search-container_buttons">
-                <button onclick="redirectToRegistrationPage()" type="button" class="search-container_buttons--button">
+            <form class="search-container__buttons">
+                <button onclick="redirectToRegistrationPage()" type="button" class="search-container__buttons--button">
                     <span>Cadastrar</span>
                     <small>Passageiro</small>
                 </button>
 
-                <button onclick="redirectToSearchPage()" type="button" class="search-container_buttons--button">
+                <button onclick="redirectToSearchPage()" type="button" class="search-container__buttons--button">
                     <span>Ver todos</span>
                     <small>Passageiros</small>
-                  </button>
+                </button>
             </form>
 
         </div>
@@ -30,39 +37,54 @@
         <div class="search-container_search">
             <div class="search-container_search--title">
                 <h1>Ver todos</h1>
-                <h3>Passageiro</h3>
+                <h3>Passageiros</h3>
             </div>
+            <form class="search-container__create--form">
+                <div class="search-container__create--form--input--select">
+                    <label for="search">Buscar por: </label>
+                    <select name="searchSelect" id="searchSelect"
+                        class="search-container__create--form--input--select--input"
+                        onchange="searchPassengerSelect(event); toggleCPFInput();">
+                        <option value="todos">Todos</option>
+                        <option value="cpf">CPF</option>
+                        <option value="primeiraClasse">1ª Classe</option>
+                        <option value="segundaClasse">2ª Classe</option>
+                        <option value="terceiraClass">3ª Classe</option>
+                    </select>
+                </div>
 
-            <form>
-                <label for="cpf">Buscar por CPF: </label>
-                <input type="text" name="cpf" id="searchCpf">
-                <button onclick="searchPassenger(event)">BUSCAR</button> <br>
+                <div id="cpfContainer" style="display:none;" class="search-container__input--cpf">
 
-                <label for="search">Buscar por: </label>
-                <select name="searchSelect" id="searchSelect">
-                    <option value="todos">Todos</option>
-                    <option value="cpf">CPF</option>
-                    <option value="primeiraClasse">1ª Classe</option>
-                    <option value="segundaClasse">2ª Classe</option>
-                    <option value="terceiraClass">3ª Classe</option>
-                </select>
+                    <label for="cpf">Insira o CPF: </label>
+                    <div>
+                        <input type="text" name="cpf" id="searchCpf">
+                        <button onclick="searchPassengerCpf(event)">BUSCAR</button> <br>
+                    </div>
+
+                </div>
+
+
             </form>
+
+
 
             <div class="search-container_search--results">
                 <form>
-                    <label for="Passageiro">Passageiros:</label>
-
-                    <div id="search-container_search-passenger">
-                        
+                    <label for="Passageiro"
+                        class="search-container_search--results--passenger--label">Resultado:</label>
+                    <div id="search-container_search-passenger" class="search-container_search--results--passenger">
                     </div>
                 </form>
-                
+
             </div>
         </div>
     </div>
 
     <script src="../js/RedirectFunctions.js"></script>
     <script src="../js/searchFunctions.js"></script>
-    
+
+
+
 </body>
+
 </html>
