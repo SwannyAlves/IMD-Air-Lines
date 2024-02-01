@@ -89,11 +89,16 @@ function searchCpf() {
   var cpf = document.getElementById("searchCpf").value
 
   if (cpf === "") {
-    alert("Você precisa digitar o cpf para realizar a busca por cpf.")
+    alert("Você precisa digitar o CPF para realizar a busca por CPF.")
     return
   } else {
-    printPassengers(filterUsers("cpf", cpf))
-    return
+    var filteredPassengers = filterUsers("cpf", cpf)
+
+    if (filteredPassengers.length === 0) {
+      alert("Nenhum passageiro encontrado com o CPF informado.")
+    } else {
+      printPassengers(filteredPassengers)
+    }
   }
 }
 
