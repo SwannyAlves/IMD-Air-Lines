@@ -34,12 +34,26 @@ function loadAllPassengers() {
 }
 
 function searchPassengerCpf(event) {
+  arrayPassenger = []
   event.preventDefault()
   passengerJSON()
   var selectSearch = document.getElementById("searchSelect").value
 
   if (selectSearch === "cpf") {
-    searchCpf()
+    var cpf = document.getElementById("searchCpf").value
+
+    if (cpf === "") {
+      alert("Você precisa digitar o cpf para realizar a busca por cpf.")
+      return
+    } else {
+      var filteredPassengers = filterUsers("cpf", cpf)
+      if (filteredPassengers.length === 0) {
+        alert("Não foi encontrado nenhum passageiro com esse cpf.")
+        return
+      }
+      printPassengers(filteredPassengers)
+      return
+    }
   }
   arrayPassenger = []
 }
@@ -85,23 +99,6 @@ function thirdClass() {
   return
 }
 
-function searchCpf() {
-  var cpf = document.getElementById("searchCpf").value
-
-  if (cpf === "") {
-    alert("Você precisa digitar o CPF para realizar a busca por CPF.")
-    return
-  } else {
-    var filteredPassengers = filterUsers("cpf", cpf)
-
-    if (filteredPassengers.length === 0) {
-      alert("Nenhum passageiro encontrado com o CPF informado.")
-    } else {
-      printPassengers(filteredPassengers)
-    }
-  }
-}
-
 function filterUsers(filter, arg) {
   var passengerFilter
   if (filter === "cpf") {
@@ -120,7 +117,7 @@ function printPassengers(passengerFilter) {
   var passengerDiv = document.getElementById(
     "search-container_search-passenger"
   )
-  passengerDiv.innerHTML = ""
+  clearResults()
 
   for (var user of passengerFilter) {
     var resultDiv = document.createElement("div")
@@ -150,8 +147,6 @@ function printPassengers(passengerFilter) {
 
     passengerDiv.appendChild(resultDiv)
   }
-
-  return
 }
 
 function getClasseLabel(classValue) {
