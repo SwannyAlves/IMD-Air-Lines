@@ -9,17 +9,24 @@ function passengerJSON() {
   }
 }
 
+function clearResults() {
+  var passengerDiv = document.getElementById(
+    "search-container_search-passenger"
+  )
+  passengerDiv.innerHTML = ""
+}
+
 function toggleCPFInput() {
   var select = document.getElementById("searchSelect")
   var cpfContainer = document.getElementById("cpfContainer")
 
   if (select.value === "cpf") {
+    clearResults()
     cpfContainer.style.display = "block"
   } else {
     cpfContainer.style.display = "none"
   }
 }
-
 function loadAllPassengers() {
   passengerJSON()
   allPassenger()
@@ -42,6 +49,8 @@ function searchPassengerSelect(event) {
   passengerJSON()
   var selectSearch = document.getElementById("searchSelect").value
 
+  toggleCPFInput()
+
   if (selectSearch === "primeiraClasse") {
     firstClass()
   } else if (selectSearch === "segundaClasse") {
@@ -49,7 +58,7 @@ function searchPassengerSelect(event) {
   } else if (selectSearch === "terceiraClass") {
     thirdClass()
   } else if (selectSearch === "cpf") {
-    toggleCPFInput()
+    return
   } else {
     allPassenger()
   }
